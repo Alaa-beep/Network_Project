@@ -13,4 +13,13 @@ network Mesh
             parameters:
                 n = n;
         }
+        Hub: Hub {
+        }
+    connections:
+
+		for i=0..sizeof(nodes)-1{
+		    Hub.outs++ --> nodes[i].in;
+        	nodes[i].out --> Hub.ins++;
+		}
+
 }
